@@ -1,0 +1,30 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+compileTestJava{
+    options.encoding 'UFT-8'
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    implementation 'com.codeborne:selenide:6.2.1'
+    testImplementation 'io.rest-assured:rest-assured:4.5.0'
+    implementation 'org.slf4j:slf4j-simple:1.7.35'
+    testRuntimeOnly 'org.slf4j:slf4j-simple:1.7.35'
+
+}
+
+test {
+    useJUnitPlatform()
+}
+compileJava.options.encoding = 'UTF-8'
+compileTestJava.options.encoding = 'UTF-8'
+javadoc.options.encoding = 'UTF-8'
