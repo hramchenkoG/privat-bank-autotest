@@ -1,46 +1,35 @@
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.commands.Click;
-import org.junit.jupiter.api.AfterEach;
-import org.junit.jupiter.api.BeforeEach;
+import base.BaseUITest;
 import org.junit.jupiter.api.Test;
+import pages.MainPage;
 
-import java.time.Duration;
-
-import static com.codeborne.selenide.Condition.cssValue;
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.*;
 import static com.codeborne.selenide.Selenide.*;
-import static groovyjarjarantlr.build.ANTLR.root;
-import static java.time.Duration.ofSeconds;
+import static enums.Page.MAIN_PAGE;
 
-class FirstTest {
+class FirstTest extends BaseUITest {
 
-   private final String url = "https://next.privat24.ua/?lang=ru";
-   private final String enter = "Вход";
-   @BeforeEach
-   public void init() {
-       clearBrowserCookies();
-   }
-    @AfterEach
-    public void tearDown() {
-        clearBrowserCookies();
-    }
-
+    private final String enter = "Вход";
 
     @Test
     void firstTestBrowser() {
-        open(url);
+        open(MAIN_PAGE.getUri());
         $(byText(enter)).shouldBe(visible);
     }
+
     @Test
     void secondTestBrowser() {
-        open(url);
-        $(byText(enter)).click();
-          $(withText("QR-код для входа через смартфон")).shouldBe(visible, ofSeconds(30));
-          $("h1").shouldHave(cssValue("color", "green"));
-       // $("[class*=\"commandAppearActive\"]").$(byText("[class^=\"root\"]")).shouldBe(visible,ofSeconds(30));
+        openPage(MAIN_PAGE);
+        page(MainPage.class)
+                .checkEnter();
+    }
 
-
+    @Test
+    void thirdTestBrowser() {
+        openPage(MAIN_PAGE);
+        page(MainPage.class)
+                .getMenuBlock()
+                .clickPayments();
 
     }
 }
