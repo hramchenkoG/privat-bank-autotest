@@ -5,7 +5,7 @@ import pages.MainPage;
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Page.*;
 
-public class SecondTest extends BaseUITest {
+public class HeaderBlockTests extends BaseUITest {
 
     @Test
     public void main() {
@@ -33,7 +33,6 @@ public class SecondTest extends BaseUITest {
                 .getHeaderBlock()
                 .clickSearchButton()
                 .searchButtonSetValue();
-        //page(PaymenPage.class);
     }
 
     @Test

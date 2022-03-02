@@ -5,7 +5,7 @@ import pages.PaymentPage;
 import static com.codeborne.selenide.Selenide.page;
 import static enums.Page.PAYMENTS_MAIN_PAGE;
 
-public class PaymenPageTests extends BaseUITest {
+public class PaymentPageTests extends BaseUITest {
 
 
     @Test
@@ -20,12 +20,12 @@ public class PaymenPageTests extends BaseUITest {
     public void paymentPageSearchBarTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-                .checkIfItPossibleToEnterDataInSearchBarAndClickOnIt();
+                .searchBarCheck();
 
     }
 
     @Test
-    public void paymentPagePopularTemplatesBarVisibilityTest() {
+    public void templatesBarVisibilityTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
                 .checkPopularTemplatesVisibility();
@@ -60,17 +60,17 @@ public class PaymenPageTests extends BaseUITest {
     }
 
     @Test
-    public void educationAndKindergartenVisibilityTest() {
+    public void educationVisibilityTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-                .educationAndKindergartenVisibilityAndClick();
+                .educationVisibilityAndClick();
     }
 
     @Test
-    public void insuranceCompaniesVisibilityTest() {
+    public void insuranceVisibilityTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-              .insuranceCompaniesVisibilityAndClick();
+              .insuranceVisibilityAndClick();
     }
 
     @Test
@@ -88,24 +88,24 @@ public class PaymenPageTests extends BaseUITest {
     }
 
     @Test
-    public void finesAndViolationsVisibilityTest() {
+    public void finesVisibilityTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-                .finesAndViolationsVisibilityAndClick();
+                .finesVisibilityAndClick();
     }
 
     @Test
-    public void travelCompaniesVisibilityTest() {
+    public void travelVisibilityTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-                .travelCompaniesVisibilityAndClick();
+                .travelVisibilityAndClick();
     }
 
     @Test
     public void informationAboutTheServiceAndReadMoreTest() {
         openPage(PAYMENTS_MAIN_PAGE);
         page(PaymentPage.class)
-                .informationAboutTheServiceAndClickOnReadMore();
+                .informationVisibilityAndClickOnReadMore();
     }
 
     @Test

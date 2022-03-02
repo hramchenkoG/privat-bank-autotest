@@ -1,5 +1,7 @@
 package pages;
 
+import io.qameta.allure.Step;
+
 import static com.codeborne.selenide.Condition.visible;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
@@ -19,7 +21,8 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage checkIfItPossibleToEnterDataInSearchBarAndClickOnIt() {
+    @Step("Checking if it posiible to enter data in search bar and click on it")
+    public PaymentPage searchBarCheck() {
         $("[placeholder^=\"Enter USREOU\"]")
                 .setValue("Bank");
         $(byText("Банкова 3, ОСББ"))
@@ -64,7 +67,7 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage educationAndKindergartenVisibilityAndClick() {
+    public PaymentPage educationVisibilityAndClick() {
         $(byText("Освіта і дитячі сади"))
                 .shouldBe(visible)
                 .click();
@@ -72,7 +75,7 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage insuranceCompaniesVisibilityAndClick() {
+    public PaymentPage insuranceVisibilityAndClick() {
         $(byText("Страхові компанії"))
                 .shouldBe(visible)
                 .click();
@@ -96,7 +99,7 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage finesAndViolationsVisibilityAndClick() {
+    public PaymentPage finesVisibilityAndClick() {
         $(byText("Штрафи і порушення"))
                 .shouldBe(visible)
                 .click();
@@ -104,14 +107,14 @@ public class PaymentPage {
         return this;
     }
 
-    public PaymentPage travelCompaniesVisibilityAndClick() {
+    public PaymentPage travelVisibilityAndClick() {
         $(byText("Туристичні компанії"))
                 .shouldBe(visible).click();
         sleep(3000);
         return this;
     }
 
-    public PaymentPage informationAboutTheServiceAndClickOnReadMore() {
+    public PaymentPage informationVisibilityAndClickOnReadMore() {
         $(byText("Information about the service")).shouldBe(visible);
         $(byText("Read more"))
                 .shouldBe(visible)
